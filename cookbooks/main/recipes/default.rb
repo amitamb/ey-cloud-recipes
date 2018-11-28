@@ -201,3 +201,5 @@
 
 #uncomment to include the custom_nodejs recipe
 #include_recipe "custom_nodejs"
+
+include_recipe "fail2ban"
