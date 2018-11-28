@@ -204,13 +204,14 @@ default['fail2ban']['jails'] = {
 		'nginx-dos'  => {
 			'comment'   => 'ban dos attacks',
 			'options'   => {
-				'enabled'   => 'false',
+				'enabled'   => 'true',
 				'port'      => 'http,https',
 				'filter'    => 'nginx-dos',
 				'logpath'   => '/var/log/nginx/*access.log',
 				'maxretry'  => '240',
 				'findtime'  => 60,
-				'bantime'   => 172800
+				'bantime'   => 172800,
+				'action'    => 'iptables-multiport[name=NoDos, port="http,https"]'
 			}
 		},
         'postfix'  => {
